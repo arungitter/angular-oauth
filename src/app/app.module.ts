@@ -23,13 +23,13 @@ import { UserinfoService } from './service/userinfo.service';
     HttpClientModule,
     OAuthModule.forRoot()
   ],
-  providers: [{
+  providers: [/*{
     provide: OauthService,
     useFactory: (backend: XHRBackend, options: RequestOptions) => {
       return new OauthService(backend, options);
     },
     deps: [XHRBackend, RequestOptions]
-  }],
+  }*/],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
