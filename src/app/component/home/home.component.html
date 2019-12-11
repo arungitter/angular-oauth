@@ -1,0 +1,43 @@
+<nav class="navbar navbar-light bg-light">
+    <div class="navbar-header">
+        <h5 *ngIf="givenName">
+            Welcome, {{givenName}} {{familyName}}!
+        </h5>
+    </div>
+    <form class="form-inline">
+        <button class="btn btn-success navbar-btn btn-margin-left" *ngIf="!access_token"
+            (click)="loginImplicit()">Login</button>
+        <button class="btn btn-danger navbar-btn btn-margin-left" *ngIf="access_token"
+            (click)="logout()">Logout</button>
+
+        <button class="btn btn-info navbar-btn btn-margin-left" (click)="refresh()">Refresh</button>
+        <button class="btn btn-info navbar-btn btn-margin-left" (click)="loadUserProfile()">Load User Profile</button>
+    </form>
+</nav>
+
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <p>Login with Authorization Server</p>
+            <div class="checkbox">
+                <label><input type="checkbox" [(ngModel)]="requestAccessToken"> Request AccessToken</label>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <p>
+                <b>Access Token:</b> {{access_token}}
+            </p>
+
+            <!--<b>id_token:</b>
+            <pre>{{id_token}}</pre>-->
+
+            <div *ngIf="givenName">
+                <b>user profile:</b>
+                <pre>{{userProfile | json}}</pre>
+            </div>
+
+        </div>
+    </div>
+</div>

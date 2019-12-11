@@ -25,12 +25,16 @@
             "aot": false,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/silent-refresh.html"
             ],
             "styles": [
+              "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -93,6 +97,7 @@
               "src/assets"
             ],
             "styles": [
+              "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -124,6 +129,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "oAuth"
 }
