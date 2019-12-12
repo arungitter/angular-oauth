@@ -2,9 +2,7 @@ import { Component } from '@angular/core';
 import { OAuthService, NullValidationHandler } from 'angular-oauth2-oidc';
 import { JwksValidationHandler } from 'angular-oauth2-oidc';
 import { authConfig } from './const/auth-config';
-import { filter, delay } from 'rxjs/operators';
-import { OauthService } from './service/oauth.service';
-import { UserinfoService } from './service/userinfo.service';
+import { filter } from 'rxjs/operators';
 
 
 
@@ -17,7 +15,7 @@ export class AppComponent {
   title = 'oAuth';
   loginFailed: boolean = false;
   userProfile: object;
-  constructor(private oauthService: OAuthService, private userinfoService: UserinfoService) {
+  constructor(private oauthService: OAuthService) {
     this.configure();
 
     // Automatically load user profile

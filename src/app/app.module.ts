@@ -1,14 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { OauthService } from './service/oauth.service';
 import { OAuthModule } from 'angular-oauth2-oidc';
 import { HomeComponent } from './component/home/home.component';
-import { HttpClientModule, } from '@angular/common/http';
-import { HttpModule, RequestOptions, XHRBackend, Http } from "@angular/http";
-import { UserinfoService } from './service/userinfo.service';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from "@angular/http";
+
 
 @NgModule({
   declarations: [

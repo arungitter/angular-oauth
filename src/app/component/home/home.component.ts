@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OAuthService, JwksValidationHandler } from 'angular-oauth2-oidc';
+import { OAuthService } from 'angular-oauth2-oidc';
 import { authConfig } from 'src/app/const/auth-config';
 import { UserinfoService } from 'src/app/service/userinfo.service';
 
