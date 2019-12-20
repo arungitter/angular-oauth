@@ -3,7 +3,7 @@ import { OAuthService, NullValidationHandler } from 'angular-oauth2-oidc';
 import { JwksValidationHandler } from 'angular-oauth2-oidc';
 import { authConfig } from './const/auth-config';
 import { filter } from 'rxjs/operators';
-
+import { authCodeFlowConfig } from './const/auth-code-flow.config'
 
 
 @Component({
@@ -16,7 +16,13 @@ export class AppComponent {
   loginFailed: boolean = false;
   userProfile: object;
   constructor(private oauthService: OAuthService) {
-    this.configure();
+
+    if (sessionStorage.getItem('flow') === 'code') {
+      this.configureCodeFlow();
+    } else {
+      this.configure();
+    }
+
 
     // Automatically load user profile
     //req.headers.set('Authorization', 'Bearer ' + this.oauthService.getAccessToken());
@@ -27,6 +33,18 @@ export class AppComponent {
         //this.userinfoService.getUserInfo();
       });
   }
+
+  private configureCodeFlow() {
+
+    this.oauthService.configure(authCodeFlowConfig);
+    this.oauthService.tokenValidationHandler = new JwksValidationHandler();
+    this.oauthService.loadDiscoveryDocumentAndTryLogin();
+
+    // Optional
+    // this.oauthService.setupAutomaticSilentRefresh();
+
+  }
+
 
   private configure() {
     this.oauthService.configure(authConfig);
@@ -50,7 +68,8 @@ export class AppComponent {
 
 
   public login() {
-    this.oauthService.initLoginFlow();
+    //this.oauthService.initLoginFlow();
+    this.oauthService.initCodeFlow();
   }
 
   public logoff() {

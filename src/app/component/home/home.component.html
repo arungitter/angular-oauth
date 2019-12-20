@@ -6,7 +6,7 @@
     </div>
     <form class="form-inline">
         <button class="btn btn-success navbar-btn btn-margin-left" *ngIf="!access_token"
-            (click)="loginImplicit()">Login</button>
+            (click)="loginCode()">Login</button>
         <button class="btn btn-danger navbar-btn btn-margin-left" *ngIf="access_token"
             (click)="logout()">Logout</button>
 
